@@ -1,0 +1,8 @@
+#!/bin/sh
+
+git co -b ${1}
+touch ${1}
+git add .
+git commit -m "Add ${1}"
+git co master
+
