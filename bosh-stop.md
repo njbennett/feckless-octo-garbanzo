@@ -53,3 +53,23 @@ scheduler
 Weirdly, `cf apps` works even though the api instance is failing, 
 because all that's actually failing is the `routing-api` job
 
+### bosh stop diego-api
+`cf push`
+
+Bits upload succeed but then we get to staging
+```
+Response code: 503
+CC code:       0
+CC error code:
+Request ID:    1922e32d-044d-4d5a-6d65-d8c903ebf0ea::ee08398b-915b-43c0-83a8-e88d6d617ac4
+Description:   {
+  "description": "Stager is unavailable: getaddrinfo: Name or service not known (bbs.service.cf.internal:8889)",
+  "error_code": "CF-StagerUnavailable",
+  "code": 170010
+}
+```
+CC also does not replay the stage request when the diego-api comes back online, so the app doesn't start at that point
+
+`cf delete`
+Processes the request and reports success, but the app doesn't go away
+It does get cleaned up once the bbs comes back online
