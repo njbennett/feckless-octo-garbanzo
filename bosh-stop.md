@@ -48,7 +48,8 @@ diego-api
 scheduler
 
 #### Errors
-`cf push` panics -- filed [issue 1351](https://github.com/cloudfoundry/cli/issues/1351) with the cli
+`cf push` panics -- filed [issue 1351](https://github.com/cloudfoundry/cli/issues/1351) with the cli team
+
 Weirdly, `cf apps` works even though the api instance is failing, 
 because all that's actually failing is the `routing-api` job
 
