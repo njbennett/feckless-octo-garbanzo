@@ -73,3 +73,12 @@ CC also does not replay the stage request when the diego-api comes back online, 
 `cf delete`
 Processes the request and reports success, but the app doesn't go away
 It does get cleaned up once the bbs comes back online
+
+### bosh stop diego-cell
+`cf push` errors at the application stage step
+`Error staging application: Staging error: unable to communicate to compatible cells`
+
+Apps previously pushed
+`dora    started           0/1         1G       1G     dora.maxime.cf-app.com`
+
+When the cell returns, previously staged apps will be restarted
